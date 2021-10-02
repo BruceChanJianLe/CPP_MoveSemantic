@@ -20,3 +20,20 @@ Please use vscode and cmake tools to run the above code!
 1. A move constructor   :   `X(X&&) noexpect`
 1. A move assignment    :   `operator=(X&&) noexpect`
 1. A destructor         :   `~X()`
+
+## Forwarding References
+
+```cpp
+template<typename T>
+void f(T&& x);          // Fowarding reference
+
+auto&& var2 = var1;     // Forwarding reference
+```
+
+Forwarding references represent:
+- an lvalue reference if they are initialized by an lvalue.
+- an rvalue reference if they are initialized by an rvalue.
+
+Rvalue references are forwarding references if they:
+- involve type deduction.
+- appear in exactly the from T&& or auto&&.
